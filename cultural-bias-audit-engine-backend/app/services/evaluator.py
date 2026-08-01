@@ -12,7 +12,7 @@ api_key = os.getenv("GROQ_API_KEY")
 if not api_key:
     raise ValueError("GROQ_API_KEY is not set. Please check your .env file.")
 
-client = AsyncGroq(api_key=os.getenv("GROQ_API_KEY"))
+client = AsyncGroq(api_key=api_key)
 
 SYSTEM_AUDIT_PROMPT = """
 You are an expert socio-linguist specializing in Responsible AI, African-American Vernacular English (AAVE), Pan-African history, implicit bias, and workplace microaggressions.
@@ -27,7 +27,22 @@ Generate tactical responses across three distinct registers:
 - Formal: Academic, analytical, referencing systemic communication patterns.
 - Informal: Direct, peer-to-peer, boundary-asserting.
 
-Output strictly valid JSON matching the requested schema fields.
+Output strictly valid JSON matching this EXACT structure:
+{
+  "linguistic_erasure_score": 2.5,
+  "microaggression_score": 7.0,
+  "bias_categories_detected": ["Stereotype Projection"],
+  "detected_vernacular": "Standard American English",
+  "analysis_summary": "Detailed analysis text...",
+  "subtext_audit": "Implicit assumption text...",
+  "suggested_responses": {
+    "corporate": "Direct string response here",
+    "formal": "Direct string response here",
+    "informal": "Direct string response here"
+  }
+}
+
+CRITICAL: The values inside 'suggested_responses' (corporate, formal, informal) MUST be plain strings, NOT objects or dictionaries.
 """
 
 async def run_single_model_audit(input_text: str, model_name: str = "llama-3.3-70b-versatile") -> ModelAuditResult:
