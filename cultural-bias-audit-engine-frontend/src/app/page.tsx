@@ -53,7 +53,9 @@ export default function Dashboard() {
       const formData = new FormData();
       formData.append("text", inputText);
 
-      const response = await fetch("http://127.0.0.1:8000/api/audit/text", {
+      const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://127.0.0.1:8000";
+
+      const response = await fetch(`${API_BASE_URL}/api/audit/text`, {
         method: "POST",
         body: formData,
       });
