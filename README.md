@@ -88,7 +88,7 @@ Node.js 18+
 
 Groq API Key
 
-
+```Bash
 # Navigate to backend directory
 cd backend
 
@@ -104,6 +104,7 @@ echo "GROQ_API_KEY=your_groq_api_key_here" > .env
 
 # Run the Uvicorn development server
 python -m uvicorn app.main:app --reload
+```
 
 ## 🚀 Local Development Setup
 
