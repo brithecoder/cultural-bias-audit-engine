@@ -11,7 +11,7 @@ app = FastAPI(
 origins = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "https://*.vercel.app",
+    "https://cultural-bias-audit-engine.vercel.app",
 ]
 
 app.add_middleware(
