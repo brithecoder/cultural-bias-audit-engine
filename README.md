@@ -88,23 +88,6 @@ Node.js 18+
 
 Groq API Key
 
-```Bash
-# Navigate to backend directory
-cd backend
-
-# Create and activate virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Create .env file and add your Groq API key
-echo "GROQ_API_KEY=your_groq_api_key_here" > .env
-
-# Run the Uvicorn development server
-python -m uvicorn app.main:app --reload
-```
 
 ## 🚀 Local Development Setup
 
